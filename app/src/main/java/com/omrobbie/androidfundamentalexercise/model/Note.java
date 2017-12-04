@@ -13,6 +13,7 @@ public class Note implements Parcelable {
     private String title;
     private String content;
     private String dateTime;
+    private String dateTime_Alarm;
 
     public Note() {
     }
@@ -22,6 +23,14 @@ public class Note implements Parcelable {
         this.title = title;
         this.content = content;
         this.dateTime = dateTime;
+    }
+
+    public Note(int id, String title, String content, String dateTime, String dateTime_Alarm) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.dateTime = dateTime;
+        this.dateTime_Alarm = dateTime_Alarm;
     }
 
     public int getId() {
@@ -56,6 +65,14 @@ public class Note implements Parcelable {
         this.dateTime = dateTime;
     }
 
+    public String getDateTime_Alarm() {
+        return dateTime_Alarm;
+    }
+
+    public void setDateTime_Alarm(String dateTime_Alarm) {
+        this.dateTime_Alarm = dateTime_Alarm;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -67,6 +84,7 @@ public class Note implements Parcelable {
         dest.writeString(this.title);
         dest.writeString(this.content);
         dest.writeString(this.dateTime);
+        dest.writeString(this.dateTime_Alarm);
     }
 
     protected Note(Parcel in) {
@@ -74,9 +92,10 @@ public class Note implements Parcelable {
         this.title = in.readString();
         this.content = in.readString();
         this.dateTime = in.readString();
+        this.dateTime_Alarm = in.readString();
     }
 
-    public static final Parcelable.Creator<Note> CREATOR = new Parcelable.Creator<Note>() {
+    public static final Creator<Note> CREATOR = new Creator<Note>() {
         @Override
         public Note createFromParcel(Parcel source) {
             return new Note(source);

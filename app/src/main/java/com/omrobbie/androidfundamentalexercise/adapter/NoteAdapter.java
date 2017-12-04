@@ -4,10 +4,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.omrobbie.androidfundamentalexercise.R;
 import com.omrobbie.androidfundamentalexercise.model.Note;
+import com.omrobbie.androidfundamentalexercise.utils.DateTime;
 
 import java.util.List;
 
@@ -71,6 +73,9 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
         @BindView(R.id.tv_content)
         TextView tv_content;
 
+        @BindView(R.id.iv_notification)
+        ImageView iv_notification;
+
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
@@ -78,8 +83,12 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
 
         public void bind(Note item) {
             tv_title.setText(item.getTitle());
-            tv_datetime.setText(item.getDateTime());
+            tv_datetime.setText(DateTime.getLongDate(item.getDateTime()));
             tv_content.setText(item.getContent());
+
+            if (DateTime.isGreaterThanNow(item.getDateTime_Alarm())) {
+                iv_notification.setVisibility(View.VISIBLE);
+            } else iv_notification.setVisibility(View.GONE);
         }
     }
 }

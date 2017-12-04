@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     FloatingActionButton fab;
 
     private NoteAdapter adapter;
-    private List<Note> notes = new ArrayList<>();
+    private List<Note> notes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +38,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         setupEnv();
         setupList();
-
-        fab.setOnClickListener(this);
 
         loadDummyData();
     }
@@ -54,6 +52,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void setupEnv() {
         ButterKnife.bind(this);
+        fab.setOnClickListener(this);
+
+        notes = new ArrayList<>();
     }
 
     private void setupList() {
@@ -63,8 +64,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void loadDummyData() {
+        notes.add(new Note(
+                100,
+                "Data awal",
+                "Ini contentnya, sengaja dibuat panjang biar kelihatan perbedaannya. Ini contentnya, sengaja dibuat panjang biar kelihatan perbedaannya. Ini contentnya, sengaja dibuat panjang biar kelihatan perbedaannya. Ini contentnya, sengaja dibuat panjang biar kelihatan perbedaannya. Ini contentnya, sengaja dibuat panjang biar kelihatan perbedaannya. Ini contentnya, sengaja dibuat panjang biar kelihatan perbedaannya. Ini contentnya, sengaja dibuat panjang biar kelihatan perbedaannya. Ini contentnya, sengaja dibuat panjang biar kelihatan perbedaannya. Ini contentnya, sengaja dibuat panjang biar kelihatan perbedaannya. Ini contentnya, sengaja dibuat panjang biar kelihatan perbedaannya. Ini contentnya, sengaja dibuat panjang biar kelihatan perbedaannya. Ini contentnya, sengaja dibuat panjang biar kelihatan perbedaannya. Ini contentnya, sengaja dibuat panjang biar kelihatan perbedaannya. Ini contentnya, sengaja dibuat panjang biar kelihatan perbedaannya.",
+                "11/12/2017",
+                "5/12/2017")
+        );
+
         for (int i = 0; i < 10; i++) {
-            notes.add(new Note(i, "Title " + i, "Content " + i, "date"));
+            notes.add(new Note(i, "Title " + i, "Content " + i, i + 1 + "/12/2017"));
         }
         progress_bar.setVisibility(View.GONE);
     }
