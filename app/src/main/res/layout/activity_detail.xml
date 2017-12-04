@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/gap_large"
+    tools:context="com.omrobbie.androidfundamentalexercise.DetailActivity">
+
+    <EditText
+        android:id="@+id/et_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dummy_title"
+        android:textSize="@dimen/text_title_detail"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_last_update"
+            android:textSize="@dimen/text_datetime"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/tv_datetime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/gap_small"
+            android:text="@string/dummy_datetime"
+            android:textSize="@dimen/text_datetime"
+            android:textStyle="italic" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="@dimen/gap_small"
+        android:layout_marginTop="@dimen/gap_small"
+        android:background="@color/colorPrimary" />
+
+    <EditText
+        android:id="@+id/et_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/dummy_content" />
+
+</LinearLayout>

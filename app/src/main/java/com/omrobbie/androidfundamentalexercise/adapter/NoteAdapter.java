@@ -1,5 +1,6 @@
 package com.omrobbie.androidfundamentalexercise.adapter;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.omrobbie.androidfundamentalexercise.DetailActivity;
 import com.omrobbie.androidfundamentalexercise.R;
 import com.omrobbie.androidfundamentalexercise.model.Note;
 import com.omrobbie.androidfundamentalexercise.utils.DateTime;
@@ -81,14 +84,23 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
             ButterKnife.bind(this, itemView);
         }
 
-        public void bind(Note item) {
+        public void bind(final Note item) {
             tv_title.setText(item.getTitle());
             tv_datetime.setText(DateTime.getLongDate(item.getDateTime()));
             tv_content.setText(item.getContent());
 
-            if (DateTime.isGreaterThanNow(item.getDateTime_Alarm())) {
+            if (DateTime.isGreaterThanNow(item.getDateTime_Notif())) {
                 iv_notification.setVisibility(View.VISIBLE);
             } else iv_notification.setVisibility(View.GONE);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(itemView.getContext(), DetailActivity.class);
+                    intent.putExtra(DetailActivity.DATA, new Gson().toJson(item));
+                    itemView.getContext().startActivity(intent);
+                }
+            });
         }
     }
 }

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="gap_large">16dp</dimen>
+    <dimen name="gap_small">8dp</dimen>
+
+    <dimen name="text_title_list">16sp</dimen>
+    <dimen name="text_title_detail">24sp</dimen>
+    <dimen name="text_datetime">12sp</dimen>
+    <dimen name="text_content">14sp</dimen>
+</resources>

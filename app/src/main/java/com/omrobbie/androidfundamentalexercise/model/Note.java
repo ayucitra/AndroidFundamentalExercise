@@ -13,7 +13,7 @@ public class Note implements Parcelable {
     private String title;
     private String content;
     private String dateTime;
-    private String dateTime_Alarm;
+    private String dateTime_Notif;
 
     public Note() {
     }
@@ -25,12 +25,12 @@ public class Note implements Parcelable {
         this.dateTime = dateTime;
     }
 
-    public Note(int id, String title, String content, String dateTime, String dateTime_Alarm) {
+    public Note(int id, String title, String content, String dateTime, String dateTime_Notif) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.dateTime = dateTime;
-        this.dateTime_Alarm = dateTime_Alarm;
+        this.dateTime_Notif = dateTime_Notif;
     }
 
     public int getId() {
@@ -65,12 +65,12 @@ public class Note implements Parcelable {
         this.dateTime = dateTime;
     }
 
-    public String getDateTime_Alarm() {
-        return dateTime_Alarm;
+    public String getDateTime_Notif() {
+        return dateTime_Notif;
     }
 
-    public void setDateTime_Alarm(String dateTime_Alarm) {
-        this.dateTime_Alarm = dateTime_Alarm;
+    public void setDateTime_Notif(String dateTime_Notif) {
+        this.dateTime_Notif = dateTime_Notif;
     }
 
     @Override
@@ -84,7 +84,7 @@ public class Note implements Parcelable {
         dest.writeString(this.title);
         dest.writeString(this.content);
         dest.writeString(this.dateTime);
-        dest.writeString(this.dateTime_Alarm);
+        dest.writeString(this.dateTime_Notif);
     }
 
     protected Note(Parcel in) {
@@ -92,7 +92,7 @@ public class Note implements Parcelable {
         this.title = in.readString();
         this.content = in.readString();
         this.dateTime = in.readString();
-        this.dateTime_Alarm = in.readString();
+        this.dateTime_Notif = in.readString();
     }
 
     public static final Creator<Note> CREATOR = new Creator<Note>() {

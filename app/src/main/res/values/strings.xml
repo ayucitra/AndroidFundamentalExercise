@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Android Fundamental Exercise</string>
+
+    <string name="dummy_title">Title</string>
+    <string name="dummy_datetime">datetime</string>
+    <string name="dummy_content">Content</string>
+
+    <string name="label_last_update">Last update :</string>
 </resources>
